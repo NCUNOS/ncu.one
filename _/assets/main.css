@@ -1,0 +1,62 @@
+html { 
+	background: url(bg.png) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='bg.png', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='bg.png', sizingMethod='scale')";
+}
+
+body {
+	font-family: 'Helvetica', '微軟正黑體', 'Microsoft ZhengHei', '微软雅黑', 'Microsoft YaHei';
+}
+
+*, body * {
+	color: white;
+	font-size: 36pt;
+}
+
+#input, #url {
+	margin: 0 auto;
+	width: 60%;
+	position: absolute;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+}
+
+#input {
+	display: flex;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+#input input {
+	background: transparent;
+	border: 0 none transparent;
+	display: block;
+	width: 0 !important;
+	max-width: 100%;
+	padding: 4px 1.4em !important;
+	flex: 1 0 auto;
+}
+
+#input .icon {
+	position: absolute;
+	top: 6px;
+	margin: 0;
+	height: 100%;
+	text-align: center;
+	width: 1.4em;
+}
+
+#input .icon.globe {
+	pointer-events: none;
+	left: 1px;
+	right: auto;
+}
+
+#input .icon.circle-right {
+	cursor: pointer;
+	right: 0;
+}
