@@ -7,16 +7,23 @@
 		<link rel="stylesheet" href="_/assets/reset.css" />
 		<link rel="stylesheet" href="_/assets/icon.css" />
 		<link rel="stylesheet" href="_/assets/main.css" />
+		<link rel="stylesheet" href="_/assets/animate.css" />
 	</head>
 	<body>
-		<div id="input">
-			<input name="url" placeholder="your url here..." />
+		<div id="long_url" class="slide-in">
+			<input name="url" placeholder="your url here..." autocomplete="off" />
 			<i class="icon globe"></i>
-			<i class="icon circle-right"></i>
+			<button class="icon circle-right"></button>
 		</div>
-		<div id="url">
+		<div id="short_url" class="fade-in">
+			<i class="icon clipboard"></i>
+			<div id="logo">
+				NCU<span class="small">.one</span><span id="shorten">/testing</span>
+			</div>
 		</div>
 		<footer>
 		</footer>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="_/assets/main.js"></script>
 	</body>
 </html>

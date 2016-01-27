@@ -14,24 +14,24 @@ body {
 
 *, body * {
 	color: white;
-	font-size: 36pt;
+	font-size: 36px;
 }
 
-#input, #url {
+#long_url, #short_url {
 	margin: 0 auto;
 	width: 60%;
 	position: absolute;
-	bottom: 50%;
 	left: 0;
 	right: 0;
 }
 
-#input {
-	display: flex;
+#long_url {
 	background: rgba(0, 0, 0, 0.4);
+	bottom: 50%;
+	display: flex;
 }
 
-#input input {
+#long_url input {
 	background: transparent;
 	border: 0 none transparent;
 	display: block;
@@ -41,7 +41,7 @@ body {
 	flex: 1 0 auto;
 }
 
-#input .icon {
+#long_url .icon, #short_url .icon {
 	position: absolute;
 	top: 6px;
 	margin: 0;
@@ -50,13 +50,83 @@ body {
 	width: 1.4em;
 }
 
-#input .icon.globe {
+#long_url .icon.globe {
 	pointer-events: none;
 	left: 1px;
 	right: auto;
 }
 
-#input .icon.circle-right {
+#long_url .icon.circle-right {
 	cursor: pointer;
+	top: 0;
 	right: 0;
+}
+
+#short_url {
+	top: 50%;
+	vertical-align: bottom;
+}
+
+#short_url .icon {
+	top: 16px;
+}
+
+#short_url .icon.clipboard {
+	-moz-transition-property: opacity;
+	-moz-transition-duration: 1s;
+	-moz-transition-delay: 1s;
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: 1s;
+	-webkit-transition-delay: 1s;
+	transition-property: opacity;
+	transition-duration: 1s;
+	transition-delay: 1s;
+	opacity: 0;
+}
+
+#short_url.shorten .icon.clipboard {
+	opacity: 1;
+}
+
+#short_url #logo {
+	position: absolute;
+	left: 100%;
+	margin-left: -3.8em;
+	font-family: 'Comic Sans MS', 'Comic Sans';
+	font-size: 72px;
+	-moz-transition-property: left, margin-left;
+	-moz-transition-duration: 1.5s;
+	-webkit-transition-property: left, margin-left;
+	-webkit-transition-duration: 1.5s;
+	transition-property: left, margin-left;
+	transition-duration: 1.5s;
+}
+
+#short_url #logo .small {
+	font-size: 60px;
+}
+
+#short_url #logo #shorten {
+	margin-left: 2px;
+	font-size: 48px;
+	font-family: 'Helvetica', '微軟正黑體', 'Microsoft ZhengHei', '微软雅黑', 'Microsoft YaHei';
+	-moz-transition-property: opacity;
+	-moz-transition-duration: 1s;
+	-moz-transition-delay: 1.3s;
+	-webkit-transition-property: opacity;
+	-webkit-transition-duration: 1s;
+	-webkit-transition-delay: 1.3s;
+	transition-property: opacity;
+	transition-duration: 1s;
+	transition-delay: 1.3s;
+	opacity: 0;
+}
+
+#short_url.shorten #logo {
+	left: 0;
+	margin-left: 48px;
+}
+
+#short_url.shorten #logo #shorten {
+	opacity: 1;
 }
