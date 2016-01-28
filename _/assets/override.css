@@ -46,3 +46,8 @@ button.ui.icon.compat.button, a.ui.icon.compat.button {
 	opacity: .5;
 	color: #eee;
 }
+
+.blurring.dimmed.dimmable > .modals ~ :not(.dimmer) {
+	-webkit-filter: blur(0) grayscale(0);
+	filter: blur(0) grayscale(0);
+}

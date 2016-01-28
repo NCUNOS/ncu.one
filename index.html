@@ -11,6 +11,10 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/input.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/form.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/grid.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dimmer.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/loader.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/modal.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.css" />
 		<link rel="stylesheet" href="_/assets/icon.css" />
 		<link rel="stylesheet" href="_/assets/override.css" />
 		<link rel="stylesheet" href="_/assets/main.css" />
@@ -28,7 +32,7 @@
 								<i class="circle-right icon" style="margin-top: -2px;"></i>
 							</button>
 						</div>
-						<input type="hidden" name="captcha" />
+						<input type="hidden" name="captchaToken" />
 					</form>
 				</div>
 				<div id="short_url" class="fade-in">
@@ -36,14 +40,24 @@
 						<i class="clipboard icon"></i>
 					</button>
 					<div id="logo">
-						NCU<span class="small">.one</span><span id="shorten">/testing</span>
+						NCU<span class="small">.one</span><span id="shorten"></span>
 					</div>
 				</div>
+			</div>
 		</div>
+		<div class="ui basic modal captcha">
+			<div class="g-recaptcha" data-sitekey="6LcNqRYTAAAAAMa3A6UoXDCNoMGoS7Z3YEyoC7w6" data-theme="dark" data-callback="recaptchaCallback"></div>
+		</div>
+		<div class="ui basic modal shorting">
+			<div class="ui active loader"></div>
 		</div>
 		<footer>
 		</footer>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/dimmer.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/modal.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/transition.min.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js"></script>
 		<script src="_/assets/main.js"></script>
 	</body>
 </html>
