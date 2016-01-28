@@ -17,61 +17,25 @@ body {
 	font-size: 36px;
 }
 
-#long_url, #short_url {
-	margin: 0 auto;
-	width: 60%;
-	position: absolute;
-	left: 0;
-	right: 0;
-}
-
 #long_url {
 	background: rgba(0, 0, 0, 0.4);
-	bottom: 50%;
-	display: flex;
 }
 
-#long_url input {
-	background: transparent;
-	border: 0 none transparent;
-	display: block;
-	width: 0 !important;
-	max-width: 100%;
-	padding: 4px 1.4em !important;
-	flex: 1 0 auto;
+#long_url form#short_it input {
+	color: white;
 }
 
-#long_url .icon, #short_url .icon {
-	position: absolute;
-	top: 6px;
-	margin: 0;
-	height: 100%;
-	text-align: center;
-	width: 1.4em;
-}
-
-#long_url .icon.globe {
-	pointer-events: none;
-	left: 1px;
-	right: auto;
-}
-
-#long_url .icon.circle-right {
-	cursor: pointer;
-	top: 0;
-	right: 0;
+#long_url input::-webkit-input-placeholder,
+#long_url input::placeholder {
+	color: white;
 }
 
 #short_url {
-	top: 50%;
+	position: relative;
 	vertical-align: bottom;
 }
 
-#short_url .icon {
-	top: 16px;
-}
-
-#short_url .icon.clipboard {
+#short_url button.copy {
 	-moz-transition-property: opacity;
 	-moz-transition-duration: 1s;
 	-moz-transition-delay: 1s;
@@ -82,9 +46,13 @@ body {
 	transition-duration: 1s;
 	transition-delay: 1s;
 	opacity: 0;
+	visibility: hidden;
+	float: left;
+	padding-top: 1em;
 }
 
-#short_url.shorten .icon.clipboard {
+#short_url.shorten button.copy {
+	visibility: visible;
 	opacity: 1;
 }
 

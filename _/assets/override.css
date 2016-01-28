@@ -1,0 +1,48 @@
+body {
+	overflow-x: hidden;
+}
+
+html, body, body > .grid {
+  height: 100%;
+}
+
+.ui.transparent[class*="left icon"].input>input {
+	padding-left: 1.2em !important;
+}
+
+.ui.transparent.action.input:not([class*="left action"]) input {
+	border: 0 none transparent;
+	border-radius: 0;
+}
+
+button.ui.transparent.button, a.ui.transparent.button {
+	background-color: transparent;
+	background-image: none;
+	background: transparent;
+
+	border: 0 none transparent;
+	border-radius: 0;
+}
+
+button.ui.icon.compat.button, a.ui.icon.compat.button {
+	padding: 0;
+}
+
+/*
+.ui.input.focus input,
+.ui.input input:focus {
+	border-color: rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.85);
+}*/
+.ui.input input::-webkit-input-placeholder,
+.ui.input.focus input::-webkit-input-placeholder,
+.ui.input input:focus::-webkit-input-placeholder {
+	opacity: .5;
+	color: #eee;
+}
+.ui.input input::-moz-placeholder,
+.ui.input.focus input::-moz-placeholder,
+.ui.input input:focus::-moz-placeholder {
+	opacity: .5;
+	color: #eee;
+}

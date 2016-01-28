@@ -4,22 +4,42 @@
 		<meta charset='utf-8' />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>NCU.one | URL shortener</title>
-		<link rel="stylesheet" href="_/assets/reset.css" />
+		<!-- <link rel="stylesheet" href="_/assets/reset.css" /> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/reset.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/button.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/container.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/input.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/form.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/grid.min.css" />
 		<link rel="stylesheet" href="_/assets/icon.css" />
+		<link rel="stylesheet" href="_/assets/override.css" />
 		<link rel="stylesheet" href="_/assets/main.css" />
 		<link rel="stylesheet" href="_/assets/animate.css" />
 	</head>
 	<body>
-		<div id="long_url" class="slide-in">
-			<input name="url" placeholder="your url here..." autocomplete="off" />
-			<i class="icon globe"></i>
-			<button class="icon circle-right"></button>
+		<div class="ui middle aligned center aligned grid container">
+			<div class="column">
+				<div id="long_url" class="slide-in">
+					<form class="ui form" action="_/api/shortit.php" method="post" id="short_it">
+						<div class="ui left icon fluid transparent action input">
+							<input name="url" type="text" placeholder="your url here..." autocomplete="off" />
+							<i class="globe icon"></i>
+							<button class="ui compat transparent icon button" type="submit">
+								<i class="circle-right icon" style="margin-top: -2px;"></i>
+							</button>
+						</div>
+						<input type="hidden" name="captcha" />
+					</form>
+				</div>
+				<div id="short_url" class="fade-in">
+					<button class="ui compat transparent icon button copy">
+						<i class="clipboard icon"></i>
+					</button>
+					<div id="logo">
+						NCU<span class="small">.one</span><span id="shorten">/testing</span>
+					</div>
+				</div>
 		</div>
-		<div id="short_url" class="fade-in">
-			<i class="icon clipboard"></i>
-			<div id="logo">
-				NCU<span class="small">.one</span><span id="shorten">/testing</span>
-			</div>
 		</div>
 		<footer>
 		</footer>
