@@ -31,17 +31,23 @@ var recaptchaCallback = function (token) {
 	var form = $('form#short_it');
 	$('.ui.shorting.modal')
 	.modal({
+		blurring: true,
+		closable: false,
 		onVisible: function () {
+			grecaptcha.reset();
 			$('input[name=captchaToken]', form).val(token);
-			$.get(
+			$.post(
 				'_/api/short_it.php',
 				form.serialize(),
 				function (data) {
 					if (data.status == 'ok') {
 						$('.ui.shorting.modal').modal('hide');
-						grecaptcha.reset();
 						$('#short_url #logo #shorten').html('/' + data.code);
 						$('#short_url').addClass('shorten');
+					}
+					if (data.status == 'failed') {
+						alert('Failed! Please assumed that is a valid url. Or try again later.');
+						$('.ui.shorting.modal').modal('hide');
 					}
 				},
 				'json'
