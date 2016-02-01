@@ -24,7 +24,7 @@ $(function () {
 
 	new Clipboard('#short_url .clipboard.icon', {
 		text: function(trigger) {
-			return 'http://ncu.one' + $('#short_url #logo #shorten').text();
+			return 'https://ncu.one' + $('#short_url #logo #shorten').text();
 		}
 	}).on('success', function(e) {
 		$('#short_url .clipboard.icon').popup('change content', 'Copied!');
