@@ -1,21 +1,13 @@
 <?php
-// database
-function init_database() {
-	$host = $_ENV['DB_HOST'];
-	$user = $_ENV['DB_USER'];
-	$passwd = $_ENV['DB_PASSWD'];
-	$database = $_ENV['DB_DATABASE'];
-	return new PDO('mysql:host=' . $host . ';dbname=' . $database . ';charset=utf8', $user, $passwd);
-}
+require_once(dirname(__FILE__) . '/.utils.inc.php');
 
-$db = init_database();
+$db = Utils::init_database();
 try {
 	$r = $db->query("SELECT 1 FROM `ncuone` LIMIT 1");
 	if ($r === false)
 		throw new Exception("error");
-	echo '{"status": "already"}';
 } catch (Exception $e) {
-	if (!$db->query('
+	$db->query('
 		SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 		SET time_zone = "+00:00";
 		CREATE TABLE `ncuone` (
@@ -31,9 +23,6 @@ try {
 			ADD PRIMARY KEY (`id`);
 		ALTER TABLE `ncuone`
 			MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-	'))
-		echo '{"status": "failed", "message": ' . json_encode($db->errorInfo()) . '}';
-	else
-		echo '{"status": "ok"}';
+	');
 }
 

@@ -1,5 +1,6 @@
 <?php
 require_once(dirname(__FILE__) . '/.utils.inc.php');
+require_once(dirname(__FILE__) . '/.init.inc.php');
 
 $request = array('url' => $_POST['url'], 'token' => $_POST['captchaToken']);
 if (Utils::check_url($request['url']))
