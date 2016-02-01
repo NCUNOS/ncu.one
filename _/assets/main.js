@@ -50,7 +50,7 @@ var recaptchaCallback = function (token) {
 						$('#short_url').addClass('shorten');
 					}
 					if (data.status == 'failed') {
-						alert('Failed! Please assumed that is a valid url. Or try again later.');
+						alert("縮網址失敗！請確定您輸入的是有效的網址（http, https），或稍後再重試。\n請注意已經夠短的網址就不能再縮囉 >.0b");
 						$('.ui.shorting.modal').modal('hide');
 					}
 				},
