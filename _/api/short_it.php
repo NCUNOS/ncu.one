@@ -34,7 +34,7 @@ if ($result['success'] === true) {
 			return Utils::to_base62($id + 1);
 		})($db);
 
-		if (strlen($request['url']) > strlen(host) + strlen($guess_id)) {
+		if (strlen($request['url']) > strlen(Utils::HOST) + strlen($guess_id)) {
 			$result['shorten'] = (function ($db, $url) {
 				$stmt = $db->prepare('INSERT INTO `ncuone`
 					(`id`, `url`, `client_ip`, `forwarded_for`, `remote_addr`, `http_via`, `created_at`) VALUES 
