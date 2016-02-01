@@ -17,6 +17,11 @@ body {
 	font-size: 36px;
 }
 
+.ui.popup {
+	font-size: 18px;
+	margin-top: 64px !important;
+}
+
 #long_url {
 	background: rgba(0, 0, 0, 0.4);
 }
@@ -97,4 +102,8 @@ body {
 
 #short_url.shorten #logo #shorten {
 	opacity: 1;
+}
+
+.ui.modal * {
+	font-size: 16px;
 }

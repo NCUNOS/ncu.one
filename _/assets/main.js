@@ -1,11 +1,13 @@
 $(function () {
-	$('.ui.captcha.modal').modal({
-		blurring: true,
-	});
-
-	$('.ui.shorting.modal').modal({
+	$('.ui.modal').modal({
 		blurring: true,
 		closable: false
+	});
+
+	$('#short_url .clipboard.icon').popup({
+		onShow: function () {
+			$('#short_url .clipboard.icon').popup('change content', 'Copy');
+		}
 	});
 
 	$('form#short_it').on('submit', function (e) {
@@ -15,23 +17,36 @@ $(function () {
 			return;
 		$('.ui.captcha.modal').modal('show');
 	});
+
+	new Clipboard('#short_url .clipboard.icon', {
+		text: function(trigger) {
+			return 'http://ncu.one' + $('#short_url #logo #shorten').text();
+		}
+	}).on('success', function(e) {
+		$('#short_url .clipboard.icon').popup('change content', 'Copied!');
+	});
 });
 
 var recaptchaCallback = function (token) {
 	var form = $('form#short_it');
-	// $('.ui.shorting.modal').modal('show');
-	$('input[name=captchaToken]', form).val(token);
-	$.get(
-		'_/api/short_it.php',
-		form.serialize(),
-		function (data) {
-			if (data.status == 'ok') {
-				// $('.ui.shorting.modal').modal('hide all');
-				$('.ui.captcha.modal').modal('hide');
-				$('#short_url #logo #shorten').html('/' + data.code);
-				$('#short_url').addClass('shorten');
-			}
-		},
-		'json'
-	);
+	$('.ui.shorting.modal')
+	.modal({
+		onVisible: function () {
+			$('input[name=captchaToken]', form).val(token);
+			$.get(
+				'_/api/short_it.php',
+				form.serialize(),
+				function (data) {
+					if (data.status == 'ok') {
+						$('.ui.shorting.modal').modal('hide');
+						grecaptcha.reset();
+						$('#short_url #logo #shorten').html('/' + data.code);
+						$('#short_url').addClass('shorten');
+					}
+				},
+				'json'
+			);
+		}
+	})
+	.modal('show');
 }
