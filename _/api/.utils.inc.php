@@ -12,6 +12,14 @@ class Utils {
 		}
 		return $result;
 	}
+	public static function to_base10($base62) {
+		$result = 0;
+		while ($base62) {
+			$result = $result * 62 + strrpos(self::BASE62_HASH, $base62[0]);
+			$base62 = substr($base62, 1);
+		}
+		return $result;
+	}
 
 	const URL_REGEXP = "/\b(?:(?:https?):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i";
 	public static function check_url($url) {
