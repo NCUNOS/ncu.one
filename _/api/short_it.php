@@ -8,6 +8,9 @@ if (Utils::check_url($request['url']))
 else
 	$result = array('success' => false);
 
+if (substr($request['url'], 0, 4) != "http")
+	$request['url'] = 'http://' . $request['url'];
+
 if ($result['success'] === true) {
 	$db = Utils::init_database();
 

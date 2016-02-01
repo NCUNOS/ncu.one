@@ -15,6 +15,10 @@ $(function () {
 		var that = $(this);
 		if ($('input[name=url]', that).val() == '')
 			return;
+		var regex = /^https?:\/\//;
+		var url = $('input[name=url]', that).val();
+		if (!regex.test(url))
+			$('input[name=url]', that).val('http://' + url);
 		$('.ui.captcha.modal').modal('show');
 	});
 
