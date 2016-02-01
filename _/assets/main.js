@@ -10,10 +10,37 @@ $(function () {
 		}
 	});
 
+	$('form#short_it').form({
+		on: 'submit',
+		revalidate: false,
+		fields: {
+			url: {
+				identifier: 'url',
+				rules: [
+					{
+						type: 'empty',
+						prompt: '請輸入要縮短的網址'
+					},
+					{
+						type: 'url',
+						prompt: '請輸入有效的網址'
+					},
+					{
+						type: 'minLength[17]',
+						prompt: '太短的網址就不能再縮小囉 >~<'
+					}
+				]
+			}
+		},
+		onInvalid: function (errors, fields) {
+			alert(errors[0]);
+		}
+	});
+
 	$('form#short_it').on('submit', function (e) {
 		e.preventDefault();
 		var that = $(this);
-		if ($('input[name=url]', that).val() == '')
+		if (that.hasClass('error'))
 			return;
 		var regex = /^https?:\/\//;
 		var url = $('input[name=url]', that).val();
