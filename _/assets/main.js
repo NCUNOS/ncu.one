@@ -10,9 +10,11 @@ $(function () {
 		}
 	});
 
+	var formErrors = null;
 	$('form#short_it').form({
 		on: 'submit',
 		revalidate: false,
+		keyboardShortcuts: false,
 		fields: {
 			url: {
 				identifier: 'url',
@@ -26,26 +28,33 @@ $(function () {
 						prompt: '請輸入有效的網址'
 					},
 					{
-						type: 'minLength[17]',
+						type: 'minLength[18]', // https://ncu.one/_ => 17
 						prompt: '太短的網址就不能再縮小囉 >~<'
 					}
 				]
 			}
 		},
-		onInvalid: function (errors, fields) {
-			alert(errors[0]);
+		onFailure: function (errors, fields) {
+			formErrors = errors;
+		},
+		onSuccess: function (e, fields) {
+			formErrors = null;
 		}
 	});
 
 	$('form#short_it').on('submit', function (e) {
 		e.preventDefault();
 		var that = $(this);
-		if (that.hasClass('error'))
-			return;
 		var regex = /^https?:\/\//;
 		var url = $('input[name=url]', that).val();
 		if (!regex.test(url))
 			$('input[name=url]', that).val('http://' + url);
+
+		that.form('validate form');
+		if (!that.form('is valid')) {
+			alert(formErrors[0]);
+			return;
+		}
 		$('.ui.captcha.modal').modal('show');
 	});
 
