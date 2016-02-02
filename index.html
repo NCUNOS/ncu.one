@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset='utf-8' />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>NCU.one | URL shortener</title>
 		<!-- <link rel="stylesheet" href="_/assets/reset.css" /> -->
@@ -20,6 +21,7 @@
 		<link rel="stylesheet" href="_/assets/icon.css" />
 		<link rel="stylesheet" href="_/assets/override.css" />
 		<link rel="stylesheet" href="_/assets/main.css" />
+		<link rel="stylesheet" href="_/assets/responsive.css" />
 		<link rel="stylesheet" href="_/assets/animate.css" />
 	</head>
 	<body>
@@ -49,10 +51,22 @@
 		</div>
 		<div class="ui basic modal captcha">
 			<div class="content">
-				<div class="g-recaptcha" data-sitekey="6LcNqRYTAAAAAMa3A6UoXDCNoMGoS7Z3YEyoC7w6" data-theme="dark" data-callback="recaptchaCallback"></div>
+				<div class="ui middle aligned stackable two column grid">
+					<div class="captcha column">
+						<div class="g-recaptcha" data-sitekey="6LcNqRYTAAAAAMa3A6UoXDCNoMGoS7Z3YEyoC7w6" data-theme="dark" data-callback="recaptchaCallback"></div>
+					</div>
+					<div class="column">
+						通過非機器人驗證使用 NCU.one 縮網址服務代表您同意接受以下使用條款：
+						<ul>
+							<li>請勿將本服務作為非法或不正當的用途。</li>
+							<li>NCU.one 將記錄您的 IP 資訊僅作為日後備查及統計之用途。</li>
+							<li>請開心使用本服務，若有建議事項請通知中央大學網路開源社。</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 			<div class="actions">
-				<div class="ui inverted cancel button">Cancel</div>
+				<div class="ui inverted cancel button">取消</div>
 			</div>
 		</div>
 		<div class="ui basic modal shorting">

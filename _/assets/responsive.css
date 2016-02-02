@@ -1,0 +1,53 @@
+@media only screen and (max-width: 767px) {
+	*, body * {
+		font-size: 24px;
+	}
+
+	body > .ui.grid > .column:not(.row) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.ui.popup {
+		font-size: 16px;
+		margin-top: 40px !important;
+	}
+
+	#short_url button.copy {
+		padding-top: 0.7em;
+		font-size: 0.9rem;
+	}
+
+	#short_url #logo {
+		font-size: 36px;
+		margin-left: -3.4em;
+	}
+	#short_url #logo .small {
+		font-size: 32px;
+	}
+
+	#short_url #logo #shorten {
+		margin-left: 2px;
+		font-size: 24px;
+	}
+
+	#short_url.shorten #logo {
+		left: 0;
+		margin-left: 28px;
+	}
+
+	.ui.modal * {
+		font-size: 14px;
+	}
+
+	.ui.modal .content,
+	.ui.modal .actions {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+
+ 	.ui.captcha.modal .captcha.column {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}

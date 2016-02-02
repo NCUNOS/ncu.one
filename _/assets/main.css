@@ -107,3 +107,7 @@ body {
 .ui.modal * {
 	font-size: 16px;
 }
+
+.ui.captcha.modal .captcha.column .g-recaptcha > div > div {
+	margin: 0 auto;
+}
