@@ -65,6 +65,14 @@ $(function () {
 	}).on('success', function(e) {
 		$('#short_url .clipboard.icon').popup('change content', 'Copied!');
 	});
+
+	// start shorting if url queried
+	var url = URI(window.location.search).query(true).url;
+	if (url != undefined) {
+		var that = $('form#short_it');
+		$('input[name=url]', that).val(url);
+		that.submit();
+	}
 });
 
 var recaptchaCallback = function (token) {
@@ -84,6 +92,12 @@ var recaptchaCallback = function (token) {
 						$('.ui.shorting.modal').modal('hide');
 						$('#short_url #logo #shorten').html('/' + data.code);
 						$('#short_url').addClass('shorten');
+
+						// send url to callback if callback queried
+						var callback = URI(window.location.search).query(true).callback;
+						if (callback != undefined) {
+							window.location.href = callback + '?short_url=' + URI.encode(data.url);
+						}
 					}
 					if (data.status == 'failed') {
 						alert("縮網址失敗！請確定您輸入的是有效的網址（http, https），或稍後再重試。\n請注意已經夠短的網址就不能再縮囉 >.0b");
