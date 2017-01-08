@@ -14,7 +14,7 @@ else
 if ($result['success'] === true) {
 	$db = Utils::init_database();
 
-	$result['shorten'] = Utils::add_record($db, $url);
+	$result['shorten'] = Utils::add_record($db, $request['url']);
 	if ($result['shorten'] === null)
 		$result['success'] = false;
 }

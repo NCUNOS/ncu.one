@@ -13,7 +13,7 @@ if ($type == 'short_it') {
 	$shorten = null;
 	if (Utils::check_url($request['url'])) {
 		$db = Utils::init_database();
-		$shorten = Utils::add_record($db, $url);
+		$shorten = Utils::add_record($db, $request['url']);
 	}
 
 	$result = array(
